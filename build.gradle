@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example.cinema'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	compile group: 'org.drools', name: 'drools-core', version: '7.23.0.Final'
+	compile group: 'org.drools', name: 'drools-compiler', version: '7.23.0.Final'
+	compile group: 'org.drools', name: 'drools-decisiontables', version: '7.23.0.Final'
+
+
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
