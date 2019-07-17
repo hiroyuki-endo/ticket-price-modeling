@@ -14,15 +14,12 @@ public class Screen {
     private LocalDate date;
     private LocalTime startTime;
     private int minutes;
-    private static final List<DayOfWeek> holidays = Arrays.asList(DayOfWeek.SATURDAY, DayOfWeek.SATURDAY);
+    private static final List<DayOfWeek> holidays = Arrays.asList(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY);
 
     public boolean isHoliDay() {
         return holidays.contains(date.getDayOfWeek());
     }
     public boolean isWeekDay() {
         return !isHoliDay();
-    }
-    public int dayOfMonth() {
-        return date.getDayOfMonth();
     }
 }

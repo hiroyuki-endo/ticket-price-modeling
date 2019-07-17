@@ -6,8 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class Cinema {
     private String title;
     private Set<Effective> effectives;

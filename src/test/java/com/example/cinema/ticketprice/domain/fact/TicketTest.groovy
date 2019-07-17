@@ -15,7 +15,7 @@ class TicketTest extends spock.lang.Specification {
         def cinema = new Cinema("天気の子")
         def screen = new Screen(cinema, toDate(screenDate), toDateTime(startTime), 90)
         def sheet = new Sheet(sheetType)
-        def customer = new Customer(new Age(toDate(birthDay), toDate(screenDate)), sex, cinemaCitizen, miCard)
+        def customer = new Customer(new Age(toDate(birthDay), toDate(screenDate)), sex, studentType, cinemaCitizen, miCard, disability)
         def ticket = new Ticket(screen, sheet, customer)
 
 
@@ -25,9 +25,24 @@ class TicketTest extends spock.lang.Specification {
         ticket.getPrice().totalPrice == result
 
         where:
-        title                     | screenDate    | startTime | birthDay     | sex      | sheetType        | cinemaCitizen | miCard || result
-        "平日、レイト無、映画の日無"  | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | SheetType.Normal | false         | false  || 1800
-        "平日、レイト有、映画の日無"  | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | SheetType.Normal | false         | false  || 1300
+        title                                      | screenDate    | startTime | birthDay     | sex      | studentType     | sheetType        | cinemaCitizen | miCard | disability || result
+        "シネマシティズン、平日、レイト無、映画の日無"   | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | true          | false  | false      || 1000
+        "シネマシティズン、平日、レイト有、映画の日無"   | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | true          | false  | false      || 1000
+        "シネマシティズン、休日、レイト無、映画の日無"   | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | true          | false  | false      || 1300
+        "シネマシティズン、休日、レイト有、映画の日無"   | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | true          | false  | false      || 1000
+        "シネマシティズン、映画の日有、平日"            | "2019-07-01"  | "14:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | true          | false  | false      || 1000
+        "シネマシティズン、映画の日有、休日"            | "2019-06-01"  | "14:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シネマシティズン、シニア"                     | "2019-06-01"  | "14:00"   | "1940-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "一般、平日、レイト無、映画の日無"              | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1800
+        "一般、平日、レイト有、映画の日無"              | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1300
+        "一般、休日、レイト無、映画の日無"              | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1800
+        "一般、休日、レイト有、映画の日無"              | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1300
+        "一般、映画の日有"                            | "2019-07-01"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シニア、平日、レイト無、映画の日無"             | "2019-07-08"  | "15:00"   | "1930-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シニア、平日、レイト有、映画の日無"             | "2019-07-08"  | "20:00"   | "1930-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シニア、休日、レイト無、映画の日無"             | "2019-07-07"  | "15:00"   | "1930-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シニア、休日、レイト有、映画の日無"             | "2019-07-07"  | "20:00"   | "1930-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
+        "シニア、映画の日有"                           | "2019-07-01"  | "20:00"   | "1930-11-11" | Sex.Male | StudentType.Non | SheetType.Normal | false         | false  | false      || 1100
     }
 
     static LocalDate toDate(final String date) {

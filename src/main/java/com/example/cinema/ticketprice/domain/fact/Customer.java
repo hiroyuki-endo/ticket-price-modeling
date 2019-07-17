@@ -6,6 +6,8 @@ import lombok.Value;
 public class Customer {
     private Age age;
     private Sex sex;
+    private StudentType studentType;
     private boolean cinemaCitizen;
     private boolean miCard;
+    private boolean disability;
 }
