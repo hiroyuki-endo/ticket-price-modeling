@@ -25,4 +25,7 @@ dependencies {
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+	testImplementation 'org.spockframework:spock-spring:1.2-groovy-2.5'
+
 }
