@@ -12,11 +12,11 @@ https://cinemacity.co.jp/ticket/
 ```
 
 ## ドメインモデル
-<img src="attach:./doc/挿入図/スライド1.PNG">
+![](./doc/images/スライド1.PNG)
 
 ## アーキテクチャ
 ドメインサービスのアダプターとして、JavaのルールエンジンであるDroolsで実装している。
-<img src="attach:./doc/挿入図/スライド2.PNG">
+![](./doc/images/スライド2.PNG)
 
 ## ルールサンプル
-<img src="attach:./doc/挿入図/スライド3.PNG">
+![](./doc/images/スライド3.PNG)
