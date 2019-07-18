@@ -29,7 +29,7 @@ public class Ticket {
         return price.getTotalPrice();
     }
 
-    public boolean containsOf(String ticketType) {
+    public boolean contains(String ticketType) {
         return ticketTypes.contains(TicketType.fromLabel(ticketType));
     }
 

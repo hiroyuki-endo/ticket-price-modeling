@@ -18,4 +18,12 @@ public class Cinema {
         this.title = title;
         this.effectives = new HashSet<>(Arrays.asList(effectives));
     }
+
+    public boolean contains(String effective) {
+        return effectives.contains(Effective.fromLabel(effective));
+    }
+
+    public boolean notContains(String effective) {
+        return !effectives.contains(Effective.fromLabel(effective));
+    }
 }

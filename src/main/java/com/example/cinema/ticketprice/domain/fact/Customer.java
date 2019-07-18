@@ -10,4 +10,5 @@ public class Customer {
     private boolean cinemaCitizen;
     private boolean miCard;
     private boolean disability;
+    private boolean has3DGlasses;
 }
