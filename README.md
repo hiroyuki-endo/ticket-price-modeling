@@ -22,7 +22,12 @@ https://cinemacity.co.jp/ticket/
 ## ルールサンプル
 ![](./doc/images/スライド3.PNG)
 
-## テスト
+## 未実装
+* 同伴者
+* 極上爆音上映
+* 夫婦50割引
+
+## テスト(抜粋)
 ```java
     @Unroll
     def "通常の料金バリエーション_#titleで#resultが返る()"() {
@@ -63,34 +68,5 @@ https://cinemacity.co.jp/ticket/
         "学生（大・専）、休日、レイト無、映画の日無"      | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.CollageStudent            | SheetType.Normal | false         | false  | false      || 1500
         "学生（大・専）、休日、レイト有、映画の日無"      | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.CollageStudent            | SheetType.Normal | false         | false  | false      || 1300
         "学生（大・専）、映画の日有"                    | "2019-07-01"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.CollageStudent            | SheetType.Normal | false         | false  | false      || 1100
-        "中・高校生、平日、レイト無、映画の日無"         | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.HighSchoolStudent          | SheetType.Normal | false         | false  | false      || 1000
-        "中・高校生、平日、レイト有、映画の日無"         | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.HighSchoolStudent          | SheetType.Normal | false         | false  | false      || 1000
-        "中・高校生、休日、レイト無、映画の日無"         | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.HighSchoolStudent          | SheetType.Normal | false         | false  | false      || 1000
-        "中・高校生、休日、レイト有、映画の日無"         | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.HighSchoolStudent          | SheetType.Normal | false         | false  | false      || 1000
-        "中・高校生、映画の日有"                       | "2019-07-01"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.HighSchoolStudent          | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、平日、レイト無、映画の日無" | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.JuniorHighSchoolStudent | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、平日、レイト有、映画の日無" | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.JuniorHighSchoolStudent | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、休日、レイト無、映画の日無" | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.JuniorHighSchoolStudent | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、休日、レイト有、映画の日無" | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.JuniorHighSchoolStudent | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、映画の日有"               | "2019-07-01"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.JuniorHighSchoolStudent | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、平日、レイト無、映画の日無" | "2019-07-08"  | "15:00"   | "2014-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、平日、レイト有、映画の日無" | "2019-07-08"  | "20:00"   | "2014-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、休日、レイト無、映画の日無" | "2019-07-07"  | "15:00"   | "2014-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、休日、レイト有、映画の日無" | "2019-07-07"  | "20:00"   | "2014-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | false      || 1000
-        "幼児（3才以上）・小学生、映画の日有"               | "2019-07-01"  | "20:00"   | "2014-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | false      || 1000
-        "障がい者（学生以上）、平日、レイト無、映画の日無"    | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 1000
-        "障がい者（学生以上）、平日、レイト有、映画の日無"    | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 1000
-        "障がい者（学生以上）、休日、レイト無、映画の日無"    | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 1000
-        "障がい者（学生以上）、休日、レイト有、映画の日無"    | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 1000
-        "障がい者（学生以上）、映画の日有"                  | "2019-07-01"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 1000
-        "障がい者（高校以下）、平日、レイト無、映画の日無"    | "2019-07-08"  | "15:00"   | "2005-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 900
-        "障がい者（高校以下）、平日、レイト有、映画の日無"    | "2019-07-08"  | "20:00"   | "2005-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 900
-        "障がい者（高校以下）、休日、レイト無、映画の日無"    | "2019-07-07"  | "15:00"   | "2005-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 900
-        "障がい者（高校以下）、休日、レイト有、映画の日無"    | "2019-07-07"  | "20:00"   | "2005-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 900
-        "障がい者（高校以下）、映画の日有"                  | "2019-07-01"  | "20:00"   | "2005-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | false  | true       || 900
-        "エムアイカード、平日、レイト無、映画の日無"         | "2019-07-08"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | true   | false      || 1600
-        "エムアイカード、平日、レイト有、映画の日無"         | "2019-07-08"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | true   | false      || 1300
-        "エムアイカード、休日、レイト無、映画の日無"         | "2019-07-07"  | "15:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | true   | false      || 1600
-        "エムアイカード、休日、レイト有、映画の日無"         | "2019-07-07"  | "20:00"   | "1990-11-11" | Sex.Male | StudentType.Non                     | SheetType.Normal | false         | true   | false      || 1300
     }
 ```
